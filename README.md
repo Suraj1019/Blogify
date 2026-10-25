@@ -1,16 +1,16 @@
 # Blogify (React)
 
-React port of the Angular app in `../Client`.
+## Tech stack
 
-| Concern     | Angular                    | React                            |
-| ----------- | -------------------------- | -------------------------------- |
-| Build       | Angular CLI                | Vite                             |
-| Routing     | `@angular/router` + guard  | `react-router-dom` + `ProtectedRoute` |
-| Forms       | Reactive forms             | Formik + Yup                     |
-| Charts      | Chart.js                   | Recharts                         |
-| Toasts      | ngx-toastr                 | react-toastify                   |
-| HTTP        | `HttpClient`               | axios (token added by interceptor) |
-| Styling     | per-component CSS          | Tailwind (shared primitives in `src/index.css`) |
+| Concern     | Library                          |
+| ----------- | -------------------------------- |
+| Build       | Vite                             |
+| Routing     | `react-router-dom` + `ProtectedRoute` |
+| Forms       | Formik + Yup                     |
+| Charts      | Recharts                         |
+| Toasts      | react-toastify                   |
+| HTTP        | axios (token added by interceptor) |
+| Styling     | Tailwind (shared primitives in `src/index.css`) |
 
 ## Scripts
 
@@ -26,7 +26,7 @@ The API URL defaults to `https://blogify-server-nine.vercel.app`; override it wi
 
 ```
 src/
-  api/          axios client + auth/posts endpoints (replaces Angular services)
+  api/          axios client + auth/posts endpoints
   context/      AuthContext (user), DraftPostContext (new post -> preview)
   components/   Layout, Header, Footer, Loader, ConfirmDialog, FormField,
                 PostForm, PostBody, MediaUploader, Badges, ...
