@@ -44,7 +44,7 @@ export default function Post() {
   }, [id, loadPost, user?.userId]);
 
   const isAuthor = !!user && post?.authorId === user.userId;
-  const comments = post?.comments?.filter((c) => c.status === 'approved') ?? [];
+  const comments = post?.comments ?? [];
 
   const onDeleteComment = async (commentId: string) => {
     if (!post) return;
@@ -96,7 +96,8 @@ export default function Post() {
                   try {
                     await addComment({ message: values.comment.trim(), postId: post._id, userId: user.userId, userName: user.name });
                     resetForm();
-                    toast.success('Comment will approve soon!');
+                    toast.success('Comment added!');
+                    await loadPost();
                   } catch (err) {
                     toast.error(getErrorMessage(err));
                   }

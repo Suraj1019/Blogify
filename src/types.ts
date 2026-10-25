@@ -10,24 +10,13 @@ export interface Reply {
   replyDate: string;
 }
 
-export type CommentStatus = 'pending' | 'approved' | 'rejected';
-
 export interface Comment {
   commentId: string;
   userId?: string;
   userName: string;
   message: string;
   commentDate: string;
-  status: CommentStatus;
   replies?: Reply[];
-}
-
-/** A pending comment as returned by the notifications endpoint. */
-export interface PendingComment extends Comment {
-  postId: string;
-  postTitle: string;
-  /** The API has been seen to return this misspelled field. */
-  commenDate?: string;
 }
 
 export interface Post {

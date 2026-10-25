@@ -69,9 +69,6 @@ export default function Profile() {
           <Link to="/analytics" className="btn-accent">
             Analytics
           </Link>
-          <Link to="/notifications" className="btn-accent">
-            Notifications
-          </Link>
           <button type="button" className="btn-danger" onClick={onLogout}>
             Logout
           </button>

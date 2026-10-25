@@ -1,5 +1,5 @@
 import { api } from './client';
-import type { CommentStatus, DraftPost, PendingComment, Post } from '../types';
+import type { DraftPost, Post } from '../types';
 
 export const getPosts = (search = '') =>
   api.get<Post[]>('/posts', { params: { search } }).then((r) => r.data);
@@ -40,12 +40,6 @@ export const updateViews = (postId: string, visitor?: string) =>
 
 export const addComment = (body: { message: string; postId: string; userId: string; userName: string }) =>
   api.put('/posts/comment', body).then((r) => r.data);
-
-export const getPendingComments = (userId: string) =>
-  api.get<PendingComment[]>(`/posts/getcomments/${userId}`).then((r) => r.data);
-
-export const moderateComment = (body: { postId: string; commentId: string; status: Exclude<CommentStatus, 'pending'> }) =>
-  api.put('/posts/approve/comment', body).then((r) => r.data);
 
 export const deleteComment = (body: { postId: string; commentId: string }) =>
   api.put('/posts/delete/comment', body).then((r) => r.data);

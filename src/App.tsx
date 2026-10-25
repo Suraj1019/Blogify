@@ -7,7 +7,6 @@ import EditPost from './pages/EditPost';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import NewPost from './pages/NewPost';
-import Notifications from './pages/Notifications';
 import Post from './pages/Post';
 import PreviewPost from './pages/PreviewPost';
 import Profile from './pages/Profile';
@@ -30,7 +29,6 @@ export default function App() {
           <Route path="newpost" element={<NewPost />} />
           <Route path="previewpost" element={<PreviewPost />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="notifications" element={<Notifications />} />
           <Route
             path="analytics"
             element={

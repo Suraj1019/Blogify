@@ -1,9 +1,9 @@
 import * as Yup from 'yup';
 import { splitList } from './format';
 
-export const EMAIL_PATTERN = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,}/;
+export const EMAIL_PATTERN = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,}$/;
 
-export const email = Yup.string().required('*Email Required').matches(EMAIL_PATTERN, 'Invalid email format');
+export const email = Yup.string().trim().required('*Email Required').matches(EMAIL_PATTERN, 'Invalid email format');
 
 const commaList = (label: string, max: number) =>
   Yup.string()

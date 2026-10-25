@@ -55,15 +55,16 @@ export default function EditPost() {
             categories: post.categories.join(', '),
             tags: post.tags.join(', '),
             media: post.media ?? [],
-            publishDate: post.publishDate ? new Date(post.publishDate).toISOString().split('T')[0] : '',
+            // Drafts are saved without a publish date; default to today so the form starts valid.
+            publishDate: new Date(post.publishDate ?? Date.now()).toISOString().split('T')[0],
           }}
           onSubmit={onSubmit}
-          actions={({ isValid, isSubmitting }) => (
+          actions={({ isSubmitting }) => (
             <>
-              <button type="submit" className="btn-secondary" disabled={!isValid || isSubmitting} onClick={() => (mode.current = 'draft')}>
+              <button type="submit" className="btn-secondary" disabled={isSubmitting} onClick={() => (mode.current = 'draft')}>
                 Save as draft
               </button>
-              <button type="submit" className="btn-primary" disabled={!isValid || isSubmitting} onClick={() => (mode.current = 'publish')}>
+              <button type="submit" className="btn-primary" disabled={isSubmitting} onClick={() => (mode.current = 'publish')}>
                 Publish Post
               </button>
               <Loader show={isSubmitting} />
